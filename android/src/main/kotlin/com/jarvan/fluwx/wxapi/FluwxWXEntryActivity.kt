@@ -42,6 +42,14 @@ open class FluwxWXEntryActivity : Activity(), IWXAPIEventHandler {
             finish()
         }
 
+        val activity = FluwxRequestHandler.getRegistrar()?.activity()
+        if(activity == null) {
+            val intent:Intent =  Intent();
+            intent.setAction("com.zhou.money_topic.main");
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     override fun onNewIntent(intent: Intent) {
